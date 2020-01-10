@@ -1,0 +1,21 @@
+#topbar {
+    background-color: chocolate;
+    border: 1px solid yellow;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: brown;
+}
+h1 {
+    text-align: center;
+    
+}
+h1 a{
+    text-decoration: none;
+}
+h2{
+    margin: 10px;
+    
+}

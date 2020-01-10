@@ -1,0 +1,28 @@
+form{
+    display: flex;
+    flex-direction: row;
+    background-color: aquamarine;
+    margin: 20px;
+    padding: 20px;
+}
+h1,h2{
+    justify-content: center;
+    text-align: center;
+}
+td, th{
+    border: 1px solid black;
+    justify-content: center;
+    text-align: center;
+    background-color: honeydew;
+    
+}
+table
+{
+    border-collapse: collapse; 
+    width:96%;
+    margin: auto;
+}
+section{
+    background-color: grey;
+    padding : 50px;
+}

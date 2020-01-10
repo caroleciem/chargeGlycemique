@@ -1,0 +1,32 @@
+td, th{
+    border: 1px solid black;
+    justify-content: center;
+    text-align: center;
+    
+}
+table
+{
+    border-collapse: collapse; 
+    width:96%;
+    margin: auto;
+}
+
+#formulaire, #liste{
+    border :1pax solid black;
+    background-color: aquamarine;
+    width: 98%;
+    margin: auto;
+}
+h1,h2{
+    justify-content: center;
+    text-align: center;
+}
+section{
+    background-color: gray;
+}
+button{
+   
+   text-align: center;
+}
+
+ 

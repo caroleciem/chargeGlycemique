@@ -15,8 +15,15 @@ table
     background-color: blanchedalmond;
     width: 98%;
     margin: auto;
+    
 }
-#trierdiv{
+form{
+    display:flex;
+    flex-direction: row;
+    padding:10px;
+}
+
+#tri{
     text-align: center;
 }
 #liste{

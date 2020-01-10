@@ -11,8 +11,8 @@ export class AlimentListComponent implements OnInit {
   alimentList = this.alimentService.alimentLists.sort(this.tri);
   alimentForm;
   trierForm;
-  ChargeTotale=this.alimentService.chargeTotale;
- 
+  ChargeTotale = this.alimentService.chargeTotale;
+
 
   constructor(private alimentService: AlimentService, private formBuilder: FormBuilder) {
     this.alimentForm = this.formBuilder.group({
@@ -20,9 +20,9 @@ export class AlimentListComponent implements OnInit {
       ig: '',
       carbs: ''
     });
-    this.trierForm = this.formBuilder.group({
-      tritype: '',
-    });
+    // this.trierForm = this.formBuilder.group({
+    //   tritype: '',
+    // });
 
   }
   ngOnInit() {
@@ -51,14 +51,33 @@ export class AlimentListComponent implements OnInit {
     }
 
   }
-  onSelect(tritype) {
-    console.log(tritype) }
+  onSelect(tritype){
+    console.log(tritype)
+    if (tritype == "nom") {
+      this.alimentList = this.alimentService.alimentLists.sort(this.tri);
+    } else if (tritype == "index") {
+      this.alimentList = this.alimentService.alimentLists.sort(this.triindex);
+
+    } else if (tritype == "proportion") {
+      this.alimentList = this.alimentService.alimentLists.sort(this.tripropor);
+    }
+  }
   supprimer(alimentId) {
     this.alimentService.supprimerAliment(alimentId);
   }
   tri(a, b) {
     if (a.name < b.name) return -1;
     else if (a.name == b.name) return 0;
+    else return 1;
+  }
+  triindex(a, b) {
+    if (a.ig < b.ig) return -1;
+    else if (a.ig == b.ig) return 0;
+    else return 1;
+  }
+  tripropor(a, b) {
+    if (a.carbs < b.carbs) return -1;
+    else if (a.carbs == b.carbs) return 0;
     else return 1;
   }
 

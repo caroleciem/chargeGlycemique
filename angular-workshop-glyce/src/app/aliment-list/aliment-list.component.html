@@ -30,18 +30,14 @@
 
     </div>
     <div id=liste>
-        <form [formGroup]="trierForm" (ngSubmit)="onSelect(trierForm.value)">
-            <div id=trierdiv>
-                <label for="trier">
-                    trier
-                </label>
-                <select formControlName="tritype" id="trier">
-                    <option value="nom">Nom</option>
-                    <option value="index">Index Glycémique</option>
-                    <option value="proportion">Proportion de glucides</option>
-                </select>
-            </div>
-        </form>
+        <div id=tri>
+            <label for="trier">Tri par : </label>
+            <select id="trier" (change)="onSelect($event.target.value)">
+                <option value="nom">Nom</option>
+                <option value="index">Index Glycémique</option>
+                <option value="proportion">Proportion de glucides</option>
+            </select>
+        </div>
         <h2>Liste des aliments enregistrés</h2>
         <table>
             <thead>

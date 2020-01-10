@@ -8,7 +8,7 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./aliment-list.component.css']
 })
 export class AlimentListComponent implements OnInit {
-  alimentList = this.alimentService.alimentLists;
+  alimentList = this.alimentService.alimentLists.sort(this.tri);
   alimentForm;
 
   constructor(private alimentService: AlimentService, private formBuilder: FormBuilder) {
@@ -48,5 +48,13 @@ export class AlimentListComponent implements OnInit {
   supprimer(alimentId) {
     this.alimentService.supprimerAliment(alimentId);
   }
+  tri(a, b) {
+    if (a.name < b.name) return -1;
+    else if (a.name == b.name) return 0;
+    else return 1;
+  }
+
+
+
 
 }

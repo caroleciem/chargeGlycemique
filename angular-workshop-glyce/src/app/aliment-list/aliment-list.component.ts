@@ -11,6 +11,8 @@ export class AlimentListComponent implements OnInit {
   alimentList = this.alimentService.alimentLists.sort(this.tri);
   alimentForm;
   trierForm;
+  ChargeTotale=this.alimentService.chargeTotale;
+ 
 
   constructor(private alimentService: AlimentService, private formBuilder: FormBuilder) {
     this.alimentForm = this.formBuilder.group({

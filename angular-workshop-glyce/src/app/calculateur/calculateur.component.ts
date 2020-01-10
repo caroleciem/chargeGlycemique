@@ -9,7 +9,8 @@ import { AlimentService } from '../aliment.service';
 })
 export class CalculateurComponent implements OnInit {
   portionForm;
-  chargeTotale = 0;
+  chargeTotale =this.alimentService.chargeTotale;
+
   alimentListCalc = this.alimentService.alimentListsCalcul;
   alimentList = this.alimentService.alimentLists;
   constructor(private alimentService: AlimentService, private formBuilder: FormBuilder) {
@@ -21,6 +22,7 @@ export class CalculateurComponent implements OnInit {
 
 
   ngOnInit() {
+    this.calculChargeTotale();
   }
   onSubmit(portionData) {
     // Process checkout data here
@@ -28,7 +30,7 @@ export class CalculateurComponent implements OnInit {
     if (portionData.alimentPortion != "-----"&&portionData.alimentPortion != "") {
       if (portionData.portion > -1) {
         this.alimentService.calculAliment(portionData);
-        this.chargeTotale = this.chargeTotale + this.alimentService.cgAliment;
+        this.calculChargeTotale();
         return true;
       }
       else {
@@ -45,7 +47,14 @@ export class CalculateurComponent implements OnInit {
   }
   supprimer(alimentCalcId) {
     this.alimentService.supprimerAlimentCalc(alimentCalcId)
-    this.chargeTotale = this.chargeTotale - this.alimentService.cgAlimentSup;
+    this.calculChargeTotale();
+  }
+  calculChargeTotale(){
+    this.chargeTotale=0;  
+    for(let i = 0; i< this.alimentService.alimentListsCalcul.length; i++){
+      this.chargeTotale= this.chargeTotale+ this.alimentListCalc[i].cg
+
+    }
   }
 
 }

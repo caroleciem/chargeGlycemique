@@ -1144,8 +1144,10 @@ export class AlimentService {
   ]
   alimentListsCalcul:AlimentCalc[] =[];
  
-  cgAliment;
+ 
+chargeTotale;  cgAliment;
   cgAlimentSup;
+  
   constructor() {
   }
 

@@ -10,13 +10,22 @@ table
     width:96%;
     margin: auto;
 }
-
-#formulaire, #liste{
-    border :1pax solid black;
+#formulaire{
+    border :1px solid black;
+    background-color: blanchedalmond;
+    width: 98%;
+    margin: auto;
+}
+#trierdiv{
+    text-align: center;
+}
+#liste{
+    border :1px solid black;
     background-color: aquamarine;
     width: 98%;
     margin: auto;
 }
+
 h1,h2{
     justify-content: center;
     text-align: center;

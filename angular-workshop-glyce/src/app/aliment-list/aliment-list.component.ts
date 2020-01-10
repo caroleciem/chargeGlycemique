@@ -10,12 +10,16 @@ import { FormBuilder } from '@angular/forms';
 export class AlimentListComponent implements OnInit {
   alimentList = this.alimentService.alimentLists.sort(this.tri);
   alimentForm;
+  trierForm;
 
   constructor(private alimentService: AlimentService, private formBuilder: FormBuilder) {
     this.alimentForm = this.formBuilder.group({
       name: '',
       ig: '',
       carbs: ''
+    });
+    this.trierForm = this.formBuilder.group({
+      tritype: '',
     });
 
   }
@@ -45,6 +49,8 @@ export class AlimentListComponent implements OnInit {
     }
 
   }
+  onSelect(tritype) {
+    console.log(tritype) }
   supprimer(alimentId) {
     this.alimentService.supprimerAliment(alimentId);
   }

@@ -1,52 +1,64 @@
 <section>
-<h1>Liste des aliments</h1>
-<div id=formulaire>
-    <h2>Formulaire d'ajout</h2>
-    <form [formGroup]="alimentForm" (ngSubmit)="onSubmit(alimentForm.value)">
+    <h1>Liste des aliments</h1>
+    <div id=formulaire>
+        <h2>Formulaire d'ajout</h2>
+        <form [formGroup]="alimentForm" (ngSubmit)="onSubmit(alimentForm.value)">
 
-        <div>
-            <label for="name">
-                Nom de l'aliment
-            </label>
-            <input id="name" type="text" formControlName="name">
-        </div>
+            <div>
+                <label for="name">
+                    Nom de l'aliment
+                </label>
+                <input id="name" type="text" formControlName="name">
+            </div>
 
-        <div>
-            <label for="ig">
-                Index Glycemique
-            </label>
-            <input id="ig" type="text" formControlName="ig">
-        </div>
-        <div>
-            <label for="carbs">
-                Proportion de glucide
-            </label>
-            <input id="carbs" type="text" formControlName="carbs">
-        </div>
+            <div>
+                <label for="ig">
+                    Index Glycemique
+                </label>
+                <input id="ig" type="text" formControlName="ig">
+            </div>
+            <div>
+                <label for="carbs">
+                    Proportion de glucide
+                </label>
+                <input id="carbs" type="text" formControlName="carbs">
+            </div>
 
-        <button class="button" type="submit">Ajouter</button>
+            <button class="button" type="submit">Ajouter</button>
 
-    </form>
+        </form>
 
-</div>
-<div id=liste>
-    <h2>Liste des aliments enregistrés</h2>
-    <table>
-        <thead>
-            <th>Nom de l'aliment</th>
-            <th>Index Glycemique</th>
-            <th>Proportion de glucides</th>
-            <th>Supprimer</th>
-        </thead>
+    </div>
+    <div id=liste>
+        <form [formGroup]="trierForm" (ngSubmit)="onSelect(trierForm.value)">
+            <div id=trierdiv>
+                <label for="trier">
+                    trier
+                </label>
+                <select formControlName="tritype" id="trier">
+                    <option value="nom">Nom</option>
+                    <option value="index">Index Glycémique</option>
+                    <option value="proportion">Proportion de glucides</option>
+                </select>
+            </div>
+        </form>
+        <h2>Liste des aliments enregistrés</h2>
+        <table>
+            <thead>
+                <th>Nom de l'aliment</th>
+                <th>Index Glycemique</th>
+                <th>Proportion de glucides</th>
+                <th>Supprimer</th>
+            </thead>
 
-        <tbody>
-            <tr *ngFor="let aliment of alimentList; index as alimentId">
-                <td> {{aliment.name}}</td>
-                <td> {{aliment.ig}}</td>
-                <td> {{aliment.carbs}}</td>
-                <td> <button (click)="supprimer(alimentId)" class="supprimer">Supprimer</button></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+            <tbody>
+                <tr *ngFor="let aliment of alimentList; index as alimentId">
+                    <td> {{aliment.name}}</td>
+                    <td> {{aliment.ig}}</td>
+                    <td> {{aliment.carbs}}</td>
+                    <td> <button (click)="supprimer(alimentId)" class="supprimer">Supprimer</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </section>

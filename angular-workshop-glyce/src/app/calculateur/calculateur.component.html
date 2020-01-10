@@ -27,7 +27,7 @@
 
   </form>
   <div id=calcul>
-    <h2>Charge totale : {{chargeTotale}}</h2>
+    <h2>Charge totale : {{chargeTotale | number:'1.0-2'}}</h2>
     <h2>Liste des portions ajoutées</h2>
   </div>
   <table>
@@ -44,7 +44,7 @@
         <td> {{alimentCalc.name}}</td>
         <td> {{alimentCalc.ig}}</td>
         <td> {{alimentCalc.carbs}}</td>
-        <td> {{alimentCalc.cg}} </td>
+        <td> {{alimentCalc.cg | number:'1.0-2'}} </td>
         <td> <button (click)="supprimer(alimentCalcId)" class="supprimer">Supprimer</button></td>
       </tr>
     </tbody>
